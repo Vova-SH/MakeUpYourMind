@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class BotMovement : MonoBehaviour
 {
     public float radiusTrigger = 10;
+    public int live = 15;
 
     private NavMeshAgent agent;
     private GameObject player;
@@ -31,5 +32,14 @@ public class BotMovement : MonoBehaviour
     {
         Gizmos.color = new Color(1, 1, 0, 0.3f);
         Gizmos.DrawSphere(transform.position, radiusTrigger);
+    }
+
+    public void SetDamage(int damage)
+    {
+        live -= damage;
+        if(live<= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

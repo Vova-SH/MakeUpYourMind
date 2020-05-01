@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-    public Shoot shoot;
+    public Bullet bullet;
     public GameObject shootStartPosition;
     private bool isMakeShoot = true;
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && isMakeShoot)
+        if (Input.GetButton("Fire1") && isMakeShoot)
         {
             InstantiateBullet();
             StartCoroutine(WaitReload());
@@ -19,12 +19,12 @@ public class ShootScript : MonoBehaviour
 
     private IEnumerator WaitReload()
     {
-        yield return new WaitForSeconds(shoot.reloadTime);
+        yield return new WaitForSeconds(bullet.reloadTime);
         isMakeShoot = true;
     }
 
     private void InstantiateBullet()
     {
-        Destroy(Instantiate(shoot.gameObject, shootStartPosition.transform.position, shootStartPosition.transform.rotation), shoot.liveTime);
+        Destroy(Instantiate(bullet.gameObject, shootStartPosition.transform.position, shootStartPosition.transform.rotation), bullet.liveTime);
     }
 }
