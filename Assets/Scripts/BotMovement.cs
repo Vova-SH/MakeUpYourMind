@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,17 +16,22 @@ public class BotMovement : MonoBehaviour
     public float radiusTrigger = 10;
     public int live = 15;
     public DamageType damageType;
+    public BotBullet bulletNear;
+    public BotBullet bulletDistance;
+    public float distanceRadiusDamage = 2f;
+    public GameObject shootStartPosition;
     public GameObject[] wayPoints;
+
     private NavMeshAgent agent;
-    private GameObject player;
+    private PlayerScript player;
     private Vector3[] points;
-    private bool isActivate = false, isBlocked = false;
+    private bool isActivate = false, isBlocked = false, isNearDamageBlocked = false, isDistanceDamageBlocked = false;
     private int currentIndex = 0;
     private NavMeshPath path;
     void Start()
     {
         path = new NavMeshPath();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         agent = GetComponent<NavMeshAgent>();
         points = new Vector3[wayPoints.Length + 1];
         points[0] = transform.position;
@@ -43,11 +49,22 @@ public class BotMovement : MonoBehaviour
     {
         if (isActivate)
         {
-            agent.destination = player.transform.position;
-            if(agent.path.status != NavMeshPathStatus.PathComplete && !isBlocked)
+            if(Vector3.Distance(player.transform.position, transform.position) > 1.5f)
             {
-                StartCoroutine(WaitPlayer());
+                agent.destination = player.transform.position;
+            } else
+            {
+                agent.destination = transform.position;
+                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+            }
+            if(agent.path.status != NavMeshPathStatus.PathComplete)
+            {
+                if (!isBlocked) StartCoroutine(WaitPlayer());
                 isBlocked = true;
+            }
+            else
+            {
+                Damage();
             }
         }
         else if (Vector3.Distance(player.transform.position, transform.position) <= radiusTrigger)
@@ -60,6 +77,35 @@ public class BotMovement : MonoBehaviour
             currentIndex++;
             agent.destination = points[currentIndex % points.Length];
         }
+    }
+
+    private void Damage()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) < 2f && damageType.HasFlag(DamageType.Near) && !isNearDamageBlocked)
+        {
+            agent.destination = player.transform.position;
+            player.SetDamage(bulletNear.damage);
+            isNearDamageBlocked = true;
+            StartCoroutine(WaitNearDamageReload());
+        }
+        else if (agent.remainingDistance < distanceRadiusDamage && damageType.HasFlag(DamageType.Distant) && !isDistanceDamageBlocked)
+        {
+            isDistanceDamageBlocked = true;
+            StartCoroutine(WaitDistanceDamageReload());
+            Destroy(Instantiate(bulletDistance.gameObject, shootStartPosition.transform.position, shootStartPosition.transform.rotation), bulletDistance.liveTime);
+        }
+    }
+
+    private IEnumerator WaitNearDamageReload()
+    {
+        yield return new WaitForSeconds(bulletNear.reloadTime);
+        isNearDamageBlocked = false;
+    }
+
+    private IEnumerator WaitDistanceDamageReload()
+    {
+        yield return new WaitForSeconds(bulletDistance.reloadTime);
+        isDistanceDamageBlocked = false;
     }
 
     private void OnDrawGizmos()

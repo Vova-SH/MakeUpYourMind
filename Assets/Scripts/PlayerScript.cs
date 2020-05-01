@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public int lives = 5;
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
@@ -43,5 +45,15 @@ public class PlayerScript : MonoBehaviour
         mouse.z = mouse.y;
         mouse.y = 0;
         return mouse - result;
+    }
+
+    public void SetDamage(int damage)
+    {
+        lives -= damage;
+        //todo: add end level
+        if(lives <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

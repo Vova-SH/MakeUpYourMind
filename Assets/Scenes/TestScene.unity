@@ -339,6 +339,12 @@ Transform:
   m_Father: {fileID: 334182552}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &237862570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8678204829378397798, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+    type: 3}
+  m_PrefabInstance: {fileID: 3811653863412761679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &334182551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,8 +1080,30 @@ PrefabInstance:
     - target: {fileID: 3811653861941757809, guid: 16e6a8bfd390de64cbe2456f90dc2634,
         type: 3}
       propertyPath: damageType
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3811653861941757809, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+        type: 3}
+      propertyPath: bulletNear
+      value: 
+      objectReference: {fileID: 539826613111143524, guid: 87259d67c68d2884cadd1dfb1161bd55,
+        type: 3}
+    - target: {fileID: 3811653861941757809, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+        type: 3}
+      propertyPath: bulletDistance
+      value: 
+      objectReference: {fileID: 539826613111143524, guid: 87259d67c68d2884cadd1dfb1161bd55,
+        type: 3}
+    - target: {fileID: 3811653861941757809, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+        type: 3}
+      propertyPath: distanceRadiusDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811653861941757809, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+        type: 3}
+      propertyPath: shootStartPosition
+      value: 
+      objectReference: {fileID: 237862570}
     - target: {fileID: 3811653861941757810, guid: 16e6a8bfd390de64cbe2456f90dc2634,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1136,6 +1164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bot
       objectReference: {fileID: 0}
+    - target: {fileID: 3811653862445239336, guid: 16e6a8bfd390de64cbe2456f90dc2634,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 270b4bf95a520cc48aec4d53bef4c0d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e6a8bfd390de64cbe2456f90dc2634, type: 3}
 --- !u!1001 &4523868755519705243
@@ -1145,6 +1178,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4523868755419055907, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd2af81ced1a92747966f1116954fc7f, type: 2}
+    - target: {fileID: 4523868755902697510, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd2af81ced1a92747966f1116954fc7f, type: 2}
+    - target: {fileID: 4523868756356904809, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
+        type: 3}
+      propertyPath: lives
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4523868756356904810, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
         type: 3}
       propertyPath: m_LocalPosition.x
