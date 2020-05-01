@@ -6,21 +6,25 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BotMovement : MonoBehaviour
 {
-    [System.Flags]
+    [Flags]
     public enum DamageType
     {
         Near = 1,
         Distant = 2
     }
-
+    [Header("Base characteristics", order = 1)]
     public float radiusTrigger = 10;
     public int live = 15;
+    public GameObject[] wayPoints;
+    [Space]
+    [Header("Damage settings", order = 1)]
     public DamageType damageType;
+    [Header("Near damage settings", order = 2)]
     public BotBullet bulletNear;
+    [Header("Distance damage settings", order = 2)]
     public BotBullet bulletDistance;
     public float distanceRadiusDamage = 2f;
     public GameObject shootStartPosition;
-    public GameObject[] wayPoints;
 
     private NavMeshAgent agent;
     private PlayerScript player;

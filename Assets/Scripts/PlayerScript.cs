@@ -12,10 +12,18 @@ public class PlayerScript : MonoBehaviour
 
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
+    public ParticleSystem[] particleSystems;
+    public float initialLives = 5;
 
     void Start()
     {
+        initialLives = lives;
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
         characterController = GetComponent<CharacterController>();
+        var emission = particleSystems[0].emission;
+        emission.enabled = false;
+        emission = particleSystems[1].emission;
+        emission.enabled = false;
     }
 
     void Update()
@@ -50,8 +58,19 @@ public class PlayerScript : MonoBehaviour
     public void SetDamage(int damage)
     {
         lives -= damage;
+        var emission = particleSystems[1].emission;
+        emission.enabled = false;
+        emission.rateOverTime = 100 * (1 - lives / initialLives);
+        emission.enabled = true;
+        if (lives / initialLives < 0.5f)
+        {
+            emission = particleSystems[0].emission;
+            emission.enabled = false;
+            emission.rateOverTime = 100 * (1 - lives / initialLives);
+            emission.enabled = true;
+        }
         //todo: add end level
-        if(lives <= 0)
+        if (lives <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
