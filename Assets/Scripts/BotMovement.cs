@@ -5,10 +5,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BotMovement : MonoBehaviour
 {
+    [System.Flags]
+    public enum DamageType
+    {
+        Near = 1,
+        Distant = 2
+    }
+
     public float radiusTrigger = 10;
     public int live = 15;
+    public DamageType damageType;
     public GameObject[] wayPoints;
-
     private NavMeshAgent agent;
     private GameObject player;
     private Vector3[] points;

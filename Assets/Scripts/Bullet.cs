@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
@@ -25,12 +23,10 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(transform.TransformVector(direction) * Time.fixedDeltaTime + transform.position);
-        //transform.Translate(0, 0, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter: " + other.name);
         var bot = other.gameObject.GetComponentInParent<BotMovement>();
         if (other.gameObject.isStatic)
         {

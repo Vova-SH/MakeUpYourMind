@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef549c47c84459941919dc84b9bd99a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
+  bullet: {fileID: 0}
   shootStartPosition: {fileID: 4749327604946825445}
 --- !u!65 &5652899827914824910
 BoxCollider:
