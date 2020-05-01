@@ -78,8 +78,8 @@ public class BotMovement : MonoBehaviour
         }
         else if (agent.remainingDistance < 1)
         {
-            currentIndex++;
-            agent.destination = points[currentIndex % points.Length];
+            currentIndex = (currentIndex + 1) % points.Length;
+            agent.destination = points[currentIndex];
         }
     }
 
