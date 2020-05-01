@@ -71,13 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusTrigger: 10
   live: 15
-  wayPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wayPoints: []
 --- !u!1 &3811653862064526127
 GameObject:
   m_ObjectHideFlags: 0
