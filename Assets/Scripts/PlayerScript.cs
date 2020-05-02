@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
         playerModel.transform.rotation = Quaternion.LookRotation(GetMousePosition());
         if (characterController.isGrounded)
         {
+            if (jumpSound.isPlaying) jumpSound.Stop();
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             if(moveDirection.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
             else if (!moveDirection.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
