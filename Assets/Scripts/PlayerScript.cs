@@ -10,6 +10,10 @@ public class PlayerScript : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public int lives = 5;
+    [Header("Sound settings")]
+    public AudioSource jumpSound;
+    public AudioSource stepSound;
+    public AudioSource shootSound;
 
 
     private CharacterController characterController;
@@ -34,10 +38,13 @@ public class PlayerScript : MonoBehaviour
         if (characterController.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            if(moveDirection.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
+            else if (!moveDirection.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
             moveDirection *= speed;
 
             if (Input.GetButton("Jump"))
             {
+                jumpSound.Play();
                 moveDirection.y = jumpSpeed;
             }
         }
