@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public GameObject playerModel;
+    [Header("Player characterisic")]
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public int lives = 5;
 
+
     private CharacterController characterController;
     private Vector3 moveDirection = Vector3.zero;
-    public ParticleSystem[] particleSystems;
-    public float initialLives = 5;
+    private ParticleSystem[] particleSystems;
+    private float initialLives = 5;
 
     void Start()
     {
