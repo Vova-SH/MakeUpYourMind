@@ -35,10 +35,11 @@ public class PlayerScript : MonoBehaviour
     {
         float forward = Input.GetAxis("Vertical") * speed;
         float right = Input.GetAxis("Horizontal") * speed;
-        moveDirection = transform.forward * forward + transform.right * right;
-        /*
+        moveDirection = (transform.forward * forward) + (transform.right * right) + transform.up * moveDirection.y;
+
         if (characterController.isGrounded)
         {
+
             if (jumpSound.isPlaying) jumpSound.Stop();
             if(moveDirection.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
             else if (!moveDirection.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
@@ -50,20 +51,11 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;*/
+        moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
     }
-    /*
-    Vector3 GetMousePosition()
-    {
-        Vector3 result = new Vector3(Screen.width * 0.5f, 0, Screen.height * 0.5f);
-        Vector3 mouse = Input.mousePosition;
-        mouse.z = mouse.y;
-        mouse.y = 0;
-        return mouse - result;
-    }*/
     public void SetDamage(int damage)
     {
         lives -= damage;

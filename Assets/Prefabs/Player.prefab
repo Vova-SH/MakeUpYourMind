@@ -9939,7 +9939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerModel: {fileID: 4523868756968032163}
   speed: 8
-  jumpSpeed: 8
+  jumpSpeed: 12
   gravity: 20
   lives: 5
   jumpSound: {fileID: 4241052397958903453}
