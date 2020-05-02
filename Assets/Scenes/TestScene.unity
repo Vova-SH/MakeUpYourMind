@@ -5755,7 +5755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1f18c0962d16d42935a2c2084836e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSetting: {fileID: 1937826669}
 --- !u!54 &1575080947
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15533,21 +15532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b434909b04759ac4e9176ac212ba125d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectCount: 1
-  onCollectAll:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1478377849}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!1 &1981327977
 GameObject:
   m_ObjectHideFlags: 0
@@ -20517,6 +20501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: lives
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523868756356904809, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4523868756356904810, guid: 69fc7b8b5e7d8224e90f93ddd0d99d64,
         type: 3}
