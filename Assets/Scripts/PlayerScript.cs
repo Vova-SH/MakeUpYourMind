@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour
     [Header("Sound settings")]
     public AudioSource jumpSound;
     public AudioSource stepSound;
-    public AudioSource shootSound;
 
 
     private CharacterController characterController;

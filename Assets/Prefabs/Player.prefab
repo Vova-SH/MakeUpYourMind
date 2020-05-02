@@ -9916,7 +9916,6 @@ MonoBehaviour:
   lives: 5
   jumpSound: {fileID: 4241052397958903453}
   stepSound: {fileID: 8426877745309241358}
-  shootSound: {fileID: 4425816895298134836}
 --- !u!114 &8474811320822575080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9930,6 +9929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
+  shootSound: {fileID: 4425816895298134836}
   shootStartPosition: {fileID: 4749327604946825445}
 --- !u!82 &8426877745309241358
 AudioSource:

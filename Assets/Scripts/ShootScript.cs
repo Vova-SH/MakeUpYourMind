@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     public Bullet bullet;
+    public AudioSource shootSound;
     public GameObject shootStartPosition;
     private bool isMakeShoot = true;
     void Update()
@@ -25,6 +26,7 @@ public class ShootScript : MonoBehaviour
 
     private void InstantiateBullet()
     {
+        shootSound.Play();
         Destroy(Instantiate(bullet.gameObject, shootStartPosition.transform.position, shootStartPosition.transform.rotation), bullet.liveTime);
     }
 }
