@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
 
 
     private CharacterController characterController;
+    private PlayerAnimationController animController;
     private Vector3 moveDirection = Vector3.zero;
     private ParticleSystem[] particleSystems;
     private float initialLives = 5;
@@ -25,6 +26,7 @@ public class PlayerScript : MonoBehaviour
         initialLives = lives;
         particleSystems = GetComponentsInChildren<ParticleSystem>();
         characterController = GetComponent<CharacterController>();
+        animController = GetComponentInChildren<PlayerAnimationController>();
         var emission = particleSystems[0].emission;
         emission.enabled = false;
         emission = particleSystems[1].emission;
@@ -33,19 +35,26 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        float forward = Input.GetAxis("Vertical") * speed;
-        float right = Input.GetAxis("Horizontal") * speed;
-        moveDirection = (transform.forward * forward) + (transform.right * right) + transform.up * moveDirection.y;
+        var moveVector = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+        moveDirection = moveVector * speed + transform.up * moveDirection.y;
 
         if (characterController.isGrounded)
         {
-
+            if(moveVector.Equals(Vector3.zero))
+            {
+                animController.StartIdleAnimation();
+            }
+            else
+            {
+                animController.StartMoveAnimation();
+            }
             if (jumpSound.isPlaying) jumpSound.Stop();
-            if(moveDirection.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
-            else if (!moveDirection.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
+            if(moveVector.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
+            else if (!moveVector.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
 
             if (Input.GetButton("Jump"))
             {
+                animController.StartJumpAnimation();
                 jumpSound.Play();
                 moveDirection.y = jumpSpeed;
             }
