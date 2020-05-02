@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerScript : MonoBehaviour
 {
+    
     public GameObject playerModel;
     [Header("Player characterisic")]
     public float speed = 6.0f;
@@ -19,7 +20,6 @@ public class PlayerScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private ParticleSystem[] particleSystems;
     private float initialLives = 5;
-
     void Start()
     {
         initialLives = lives;
@@ -33,14 +33,15 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        playerModel.transform.rotation = Quaternion.LookRotation(GetMousePosition());
+        float forward = Input.GetAxis("Vertical") * speed;
+        float right = Input.GetAxis("Horizontal") * speed;
+        moveDirection = transform.forward * forward + transform.right * right;
+        /*
         if (characterController.isGrounded)
         {
             if (jumpSound.isPlaying) jumpSound.Stop();
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             if(moveDirection.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
             else if (!moveDirection.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
-            moveDirection *= speed;
 
             if (Input.GetButton("Jump"))
             {
@@ -49,12 +50,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        moveDirection.y -= gravity * Time.deltaTime;*/
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
     }
-
+    /*
     Vector3 GetMousePosition()
     {
         Vector3 result = new Vector3(Screen.width * 0.5f, 0, Screen.height * 0.5f);
@@ -62,8 +63,7 @@ public class PlayerScript : MonoBehaviour
         mouse.z = mouse.y;
         mouse.y = 0;
         return mouse - result;
-    }
-
+    }*/
     public void SetDamage(int damage)
     {
         lives -= damage;
