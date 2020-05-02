@@ -9680,12 +9680,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4523868756356904823}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da9060b2044277149a64540cfff71a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 3472025156558696511}
   speed: 8
   jumpSpeed: 12
   gravity: 20
@@ -9968,6 +9968,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8576904d9699fc14998e532a94b852e9, type: 3}
+--- !u!1 &3472025156558696511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7938065490537472144, guid: 8576904d9699fc14998e532a94b852e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6775297279304880303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3472025156558696510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7938065490537472145, guid: 8576904d9699fc14998e532a94b852e9,
