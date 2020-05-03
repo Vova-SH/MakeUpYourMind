@@ -21,7 +21,7 @@ public class BotBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.TransformVector(direction) * Time.fixedDeltaTime + transform.position);
+        if (rb != null) rb.MovePosition(transform.TransformVector(direction) * Time.fixedDeltaTime + transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
