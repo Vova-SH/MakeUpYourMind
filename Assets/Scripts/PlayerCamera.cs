@@ -34,7 +34,7 @@ public class PlayerCamera : MonoBehaviour {
 
 
 	void Update(){
-		currentX += Input.GetAxis("Mouse X");
+        currentX += Input.GetAxis("Mouse X");
 		currentY -= Input.GetAxis("Mouse Y");
 
 		currentX = Mathf.Repeat(currentX, 360);

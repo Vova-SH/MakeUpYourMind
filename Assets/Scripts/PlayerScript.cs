@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
     private bool isHelperActivate = false;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         initialLives = lives;
         particleSystems = GetComponentsInChildren<ParticleSystem>();
         characterController = GetComponent<CharacterController>();
@@ -39,7 +40,7 @@ public class PlayerScript : MonoBehaviour
     {
         var moveVector = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         moveDirection = moveVector * speed + transform.up * moveDirection.y;
-        if (Input.GetButton("Fire2") && !isHelperActivate)
+        if (Input.GetButtonDown("Fire2") && !isHelperActivate)
         {
             Instantiate(helper, transform.position, transform.rotation);
             isHelperActivate = true;

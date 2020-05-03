@@ -13,27 +13,36 @@ public class Helper : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerScript>().transform;
-        var targets = GameObject.FindObjectsOfType <ObjectScript> ();
+        var targets = FindObjectsOfType<ObjectScript>();
         NavMeshPath path = new NavMeshPath();
         int minCorners = int.MaxValue;
         Vector3 dist = Vector3.zero;
+        bool isHavePath = false;
         foreach(var target in targets)
         {
             agent.CalculatePath(target.transform.position, path);
-            if(minCorners > path.corners.Length)
+            Debug.Log(target.transform.position + "length: " + path.corners.Length + ", status: " +path.status);
+            if (minCorners > path.corners.Length && path.status == NavMeshPathStatus.PathComplete)
             {
+                isHavePath = true;
                 minCorners = path.corners.Length;
                 dist = target.transform.position;
+                Debug.Log("Dist: " + dist);
             }
         }
-        if (!dist.Equals(Vector3.zero)) agent.destination = dist;
-        else Destroy(gameObject);
+        if (isHavePath) agent.destination = dist;
+        else
+        {
+            player.GetComponent<PlayerScript>().DeactivateHelper();
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
-        if (agent.remainingDistance < 1 || Vector3.Distance(transform.position, player.position) > 30)
+        if ((agent.remainingDistance < 1  && agent.remainingDistance != 0) || Vector3.Distance(transform.position, player.position) > 30)
         {
+            Debug.Log(agent.remainingDistance + "; " + Vector3.Distance(transform.position, player.position));
             player.GetComponent<PlayerScript>().DeactivateHelper();
             Destroy(gameObject);
         }

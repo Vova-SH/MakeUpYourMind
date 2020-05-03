@@ -26,6 +26,7 @@ public class BotBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         var player = other.gameObject.GetComponentInParent<PlayerScript>();
         if (other.gameObject.isStatic)
         {
