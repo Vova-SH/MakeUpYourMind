@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb67e5f5a5893448a37a63cc6199184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 0.5
-  damage: 5
+  reloadTime: 0.1
+  damage: 1
   speed: 50
   liveTime: 2
 --- !u!65 &490369593884258897

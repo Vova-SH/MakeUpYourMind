@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusTrigger: 10
-  live: 15
+  live: 5
   wayPoints: []
   damageType: 2
   bulletNear: {fileID: 0}

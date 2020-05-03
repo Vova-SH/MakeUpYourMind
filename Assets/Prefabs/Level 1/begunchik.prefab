@@ -82,13 +82,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusTrigger: 10
-  live: 15
+  live: 10
   wayPoints: []
   damageType: 2
   bulletNear: {fileID: 0}
   bulletDistance: {fileID: 539826613111143524, guid: e8fa07fc35bf39748841df0eb822d87f,
     type: 3}
-  distanceRadiusDamage: 2
+  distanceRadiusDamage: 10
   shootStartPosition: {fileID: 8678204829378397798}
 --- !u!1 &8678204829378397798
 GameObject:
