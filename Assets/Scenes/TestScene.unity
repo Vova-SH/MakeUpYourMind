@@ -5666,7 +5666,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: e350333bcbf730c429192a8c19717044, type: 3}
+  - {fileID: 2100000, guid: fbeb7753625ae964299f8eb3d1609405, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5752,7 +5752,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575080943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1f18c0962d16d42935a2c2084836e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b297b0cc9d42184ab0000a2af3fcda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1575080947
@@ -15529,9 +15529,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1937826667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b434909b04759ac4e9176ac212ba125d, type: 3}
+  m_Script: {fileID: 11500000, guid: b98b2c95452c3cb4285338b5e923fc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectCount: 1
+  onCollectAll:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1478377849}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1981327977
 GameObject:
   m_ObjectHideFlags: 0
