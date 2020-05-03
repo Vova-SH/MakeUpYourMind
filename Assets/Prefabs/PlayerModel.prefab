@@ -66,6 +66,7 @@ MonoBehaviour:
   moveAnimationName: RobotRun1
   idleAnimationName: RobotIdle
   jumpAnimationName: RobotJump
+  shootAnimationName: RobotGun
 --- !u!1001 &7938065491521689590
 PrefabInstance:
   m_ObjectHideFlags: 0
