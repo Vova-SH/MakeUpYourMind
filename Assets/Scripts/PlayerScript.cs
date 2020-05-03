@@ -96,4 +96,12 @@ public class PlayerScript : MonoBehaviour
     {
         isHelperActivate = false;
     }
+
+    public void SetJump(int height)
+    {
+        animController.StartJumpAnimation();
+        jumpSound.Play();
+        moveDirection.y = height;
+        characterController.Move(moveDirection * Time.deltaTime);
+    }
 }
