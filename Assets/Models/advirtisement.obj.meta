@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 20d31b6865019ce43970e26a425b1302
+guid: fd8c5d4f26bf239458122333a4dee06a
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: -203655887218126122
-    second: mixamo.com
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: palettemat
+      name: defaultMat
     second: {fileID: 2100000, guid: cb790e5761f468941adf0f2bcd3fb647, type: 2}
   materials:
     materialImportMode: 1
