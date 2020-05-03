@@ -8,16 +8,6 @@ public class ManagerManu : MonoBehaviour
     public Color active = new Color(0f, 0f, 0f, 0f);
     public Color noActive = new Color(1f, 0f, 1f, 0.1f);
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if (gameObject.name == "Play")

@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 125057847}
   - component: {fileID: 125057848}
+  - component: {fileID: 125057849}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -166,6 +167,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: {r: 0, g: 0, b: 0, a: 0}
   noActive: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &125057849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125057846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c51d812bcd775409229364baf7ea6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &304197979
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +190,7 @@ GameObject:
   - component: {fileID: 304197982}
   - component: {fileID: 304197981}
   - component: {fileID: 304197980}
+  - component: {fileID: 304197983}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -249,6 +263,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &304197983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304197979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &532240846
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +292,7 @@ GameObject:
   - component: {fileID: 532240848}
   - component: {fileID: 532240847}
   - component: {fileID: 532240851}
+  - component: {fileID: 532240852}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -358,6 +389,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: {r: 0, g: 0, b: 0, a: 0}
   noActive: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &532240852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532240846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 125057849}
+          m_MethodName: QuitGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &566466441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,6 +774,7 @@ GameObject:
   - component: {fileID: 871159601}
   - component: {fileID: 871159600}
   - component: {fileID: 871159604}
+  - component: {fileID: 871159605}
   m_Layer: 0
   m_Name: Play
   m_TagString: Untagged
@@ -811,6 +871,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: {r: 0.5060075, g: 0.7830189, b: 0.57802534, a: 0}
   noActive: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &871159605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871159599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 125057849}
+          m_MethodName: GoToScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: CutScene1
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &876004979
 PrefabInstance:
   m_ObjectHideFlags: 0
