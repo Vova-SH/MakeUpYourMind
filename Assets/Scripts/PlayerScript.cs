@@ -66,9 +66,11 @@ public class PlayerScript : MonoBehaviour
                 moveDirection.y = jumpSpeed;
             }
         }
-
-        moveDirection.y -= gravity * Time.deltaTime;
-
+        else
+        {
+            animController.StartJumpAnimation();
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
     }
