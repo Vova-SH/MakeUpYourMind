@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerScript : MonoBehaviour
 {
-    
+
     public GameObject playerModel;
+    public GameObject helper;
     [Header("Player characterisic")]
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
@@ -21,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private ParticleSystem[] particleSystems;
     private float initialLives = 5;
+    private bool isHelperActivate = false;
     void Start()
     {
         initialLives = lives;
@@ -37,10 +39,14 @@ public class PlayerScript : MonoBehaviour
     {
         var moveVector = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         moveDirection = moveVector * speed + transform.up * moveDirection.y;
-
+        if (Input.GetButton("Fire2") && !isHelperActivate)
+        {
+            Instantiate(helper, transform.position, transform.rotation);
+            isHelperActivate = true;
+        }
         if (characterController.isGrounded)
         {
-            if(moveVector.Equals(Vector3.zero))
+            if (moveVector.Equals(Vector3.zero))
             {
                 animController.StartIdleAnimation();
             }
@@ -49,7 +55,7 @@ public class PlayerScript : MonoBehaviour
                 animController.StartMoveAnimation();
             }
             if (jumpSound.isPlaying) jumpSound.Stop();
-            if(moveVector.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
+            if (moveVector.Equals(Vector3.zero) && stepSound.isPlaying) stepSound.Stop();
             else if (!moveVector.Equals(Vector3.zero) && !stepSound.isPlaying && !jumpSound.isPlaying) stepSound.Play();
 
             if (Input.GetButton("Jump"))
@@ -84,5 +90,10 @@ public class PlayerScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void DeactivateHelper()
+    {
+        isHelperActivate = false;
     }
 }

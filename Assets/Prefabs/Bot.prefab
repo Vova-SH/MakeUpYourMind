@@ -51,7 +51,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
@@ -72,12 +72,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radiusTrigger: 10
   live: 15
+  wayPoints: []
   damageType: 0
   bulletNear: {fileID: 0}
   bulletDistance: {fileID: 0}
   distanceRadiusDamage: 2
   shootStartPosition: {fileID: 0}
-  wayPoints: []
 --- !u!1 &3811653862064526127
 GameObject:
   m_ObjectHideFlags: 0
