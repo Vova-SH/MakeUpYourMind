@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 24d391ec8d7a2144d9b6b972464ebaec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d32649f93b4e64e4eac4297f8b3abced, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9764,7 +9764,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4523868756356904823}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9818,7 +9818,7 @@ MonoBehaviour:
   speed: 8
   jumpSpeed: 12
   gravity: 20
-  lives: 5
+  lives: 50
   jumpSound: {fileID: 4241052397958903453}
   stepSound: {fileID: 8426877745309241358}
 --- !u!114 &8474811320822575080
