@@ -89,9 +89,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTime: 1
-  damage: 5
-  speed: 5
+  damage: 3
+  speed: 10
   liveTime: 1
+--- !u!65 &4516773009627317718
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078468509684018358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.057872873, y: 0.12520269, z: 0.027468456}
+  m_Center: {x: -0.00056437554, y: 0.061154496, z: 0.0031997145}
 --- !u!1001 &233502565905102271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,6 +189,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e28e5682f7dcb48b754f5b1e16942f, type: 3}
+--- !u!1 &8078468509684018358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f6e28e5682f7dcb48b754f5b1e16942f,
+    type: 3}
+  m_PrefabInstance: {fileID: 233502565905102271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5064057633107074725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f6e28e5682f7dcb48b754f5b1e16942f,
