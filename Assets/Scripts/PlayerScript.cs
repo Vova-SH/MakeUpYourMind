@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public int lives = 5;
     [Header("Sound settings")]
     public AudioSource jumpSound;
+    public AudioSource fallSound;
     public AudioSource stepSound;
 
 
@@ -22,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private ParticleSystem[] particleSystems;
     private float initialLives = 5;
-    private bool isHelperActivate = false;
+    private bool isHelperActivate = false, isGround = false;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -47,6 +48,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (characterController.isGrounded)
         {
+            if (!isGround) fallSound.Play();
             if (moveVector.Equals(Vector3.zero))
             {
                 animController.StartIdleAnimation();
@@ -71,8 +73,9 @@ public class PlayerScript : MonoBehaviour
             animController.StartJumpAnimation();
             moveDirection.y -= gravity * Time.deltaTime;
         }
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+        isGround = characterController.isGrounded;
+    // Move the controller
+    characterController.Move(moveDirection * Time.deltaTime);
     }
     public void SetDamage(int damage)
     {
