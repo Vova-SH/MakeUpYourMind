@@ -2125,6 +2125,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 325362138036098682, guid: 2737b898cb6b22345ad5977d77059085,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3811653861941757809, guid: 2737b898cb6b22345ad5977d77059085,
         type: 3}
       propertyPath: wayPoints.Array.size
@@ -2199,6 +2204,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811653861941757812, guid: 2737b898cb6b22345ad5977d77059085,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093266442402673639, guid: 2737b898cb6b22345ad5977d77059085,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678204829378397798, guid: 2737b898cb6b22345ad5977d77059085,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2737b898cb6b22345ad5977d77059085, type: 3}
