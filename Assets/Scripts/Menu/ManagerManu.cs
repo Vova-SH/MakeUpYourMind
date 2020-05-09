@@ -5,31 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ManagerManu : MonoBehaviour
 {
-    public Color active = new Color(0f, 0f, 0f, 0f);
-    public Color noActive = new Color(1f, 0f, 1f, 0.1f);
-
-    private void OnMouseDown()
+    private void Start()
     {
-        if (gameObject.name == "Play")
-        {
-            print("играть");
-        }
-        if (gameObject.name == "Exit")
-        {
-            print("выход");
-            Application.Quit();
-        }
-    }
-
-    private void OnMouseOver()
-    {
-        this.gameObject.transform.localScale = new Vector3(30, 10, 10);
-        this.gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = active;
-    }
-
-    private void OnMouseExit()
-    {
-        this.gameObject.transform.localScale = new Vector3(25, 9, 9);
-        this.gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = noActive;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

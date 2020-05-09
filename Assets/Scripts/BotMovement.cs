@@ -32,8 +32,11 @@ public class BotMovement : MonoBehaviour
     private bool isActivate = false, isBlocked = false, isNearDamageBlocked = false, isDistanceDamageBlocked = false;
     private int currentIndex = 0;
     private NavMeshPath path;
+
+    private Animator animator;
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         path = new NavMeshPath();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
         agent = GetComponent<NavMeshAgent>();
@@ -74,7 +77,10 @@ public class BotMovement : MonoBehaviour
         else if (Vector3.Distance(player.transform.position, transform.position) <= radiusTrigger)
         {
             agent.CalculatePath(player.transform.position, path);
-            if(path.status == NavMeshPathStatus.PathComplete) isActivate = true;
+            if (path.status == NavMeshPathStatus.PathComplete)
+            {
+                isActivate = true;
+            }
         }
         else if (agent.remainingDistance < 1)
         {
@@ -87,6 +93,10 @@ public class BotMovement : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) < 2f && damageType.HasFlag(DamageType.Near) && !isNearDamageBlocked)
         {
+            if (animator != null)
+            {
+                animator.Play("damage");
+            }
             agent.destination = player.transform.position;
             player.SetDamage(bulletNear.damage);
             isNearDamageBlocked = true;
@@ -94,6 +104,10 @@ public class BotMovement : MonoBehaviour
         }
         else if (agent.remainingDistance < distanceRadiusDamage && damageType.HasFlag(DamageType.Distant) && !isDistanceDamageBlocked)
         {
+            if (animator != null)
+            {
+                animator.Play("damage");
+            }
             isDistanceDamageBlocked = true;
             StartCoroutine(WaitDistanceDamageReload());
             Destroy(Instantiate(bulletDistance.gameObject, shootStartPosition.transform.position, shootStartPosition.transform.rotation), bulletDistance.liveTime);
@@ -145,6 +159,10 @@ public class BotMovement : MonoBehaviour
 
     private IEnumerator WaitPlayer()
     {
+        if (animator != null)
+        {
+            animator.Play("idle");
+        }
         yield return new WaitForSeconds(3);
         agent.CalculatePath(player.transform.position, path);
         if(path.status != NavMeshPathStatus.PathComplete)
@@ -153,5 +171,9 @@ public class BotMovement : MonoBehaviour
             agent.destination = points[currentIndex % points.Length];
         }
         isBlocked = false;
+        if (animator != null)
+        {
+            animator.Play("walk");
+        }
     }
 }

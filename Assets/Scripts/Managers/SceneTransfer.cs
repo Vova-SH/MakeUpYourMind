@@ -11,4 +11,12 @@ public class SceneTransfer : MonoBehaviour
     {
         Application.Quit();
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 }

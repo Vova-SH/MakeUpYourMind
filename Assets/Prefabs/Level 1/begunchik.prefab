@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 3811653861941757810}
   - component: {fileID: 3811653861941757811}
   - component: {fileID: 3811653861941757809}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: begunchik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5457532869550179269}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,6 +206,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 75fec62c662b3c848a7ae9e01e7cf350,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 75fec62c662b3c848a7ae9e01e7cf350,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75fec62c662b3c848a7ae9e01e7cf350, type: 3}
