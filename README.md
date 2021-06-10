@@ -1,5 +1,6 @@
 # Make Up Your Mind
 
+[![Unity CI](https://github.com/Vova-SH/MakeUpYourMind/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/Vova-SH/MakeUpYourMind/actions/workflows/main.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/vova-sh/makeupyourmind/badge/master)](https://www.codefactor.io/repository/github/vova-sh/makeupyourmind/overview/master)
 [<img src="https://raw.githubusercontent.com/itchio/itch.io/master/logos/itchio.svg" height = "20">](https://neksal.itch.io/make-up-your-mind)
 
